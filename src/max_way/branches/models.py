@@ -6,3 +6,6 @@ class Branches(models.Model):
     work_time = models.TimeField()
     phone_number = models.CharField(max_length= 13, null= False, blank= False)
     status = models.SmallIntegerField(choices=[(1, "Active"), (2, "Inactive")], default=1)
+
+    def __str__(self):
+        return self.name

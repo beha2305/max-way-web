@@ -7,6 +7,8 @@ class Orders(models.Model):
     lat = models.CharField(max_length=200, null= True, blank=True)
     long = models.CharField(max_length=200, null= True, blank=True)
 
+    def __str__(self):
+        return self.address
 
 class OrderItem(models.Model):
     oder = models.ForeignKey(Orders, on_delete=models.CASCADE)
