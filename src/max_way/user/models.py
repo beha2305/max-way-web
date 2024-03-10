@@ -32,7 +32,6 @@ class UserManager(BaseUserManager):
         return user
 
 class User(AbstractBaseUser, PermissionsMixin):
-    name = models.CharField(max_length= 30, null= True, blank= False)
     phone_number = models.CharField(max_length= 13, null= False, blank= False)
     username = models.CharField(max_length= 20, null= False, blank= False, unique= True)
     is_staff = models.BooleanField(default=False)
