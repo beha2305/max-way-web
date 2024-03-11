@@ -3,11 +3,9 @@ from .models import Category
 from . import services
 
 def index(request):
-    category_id = request.GET.get("category")
-    products = services.get_products(category_id=category_id)
+    products = services.get_products()
     categories = Category.objects.all()
 
-    print(category_id)
     ctx = {
         "products": products,
         "categories": categories

@@ -15,17 +15,12 @@ def dictfetchone(cursor):
     return dict(zip(columns, row))
 
 
-def get_products(**kwargs):
+def get_products():
     with connection.cursor() as cursor:
-        if kwargs.get("category_id"):
-            where = f"""where pc.id = {kwargs.get("category_id")}"""
-        else:
-            where = ''
         cursor.execute(f"""
             select pp.*, pc."name" as category_name
             from product_product pp 
             inner join product_category pc on pc.id = pp.category_id 
-            {where}
         """)
 
         return dictfethall(cursor)
