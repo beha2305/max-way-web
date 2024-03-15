@@ -53,9 +53,9 @@
             </a></div>
             <div class="menu__ul">
                 <ul>
-                    <li class="list"><a href="http://localhost:8000">Menyu </a></li>
-                    <li class="list"><a href="http://localhost:8000/order/">Bolalar uchun</a></li>
-                    <li class="list"><a href="">Filiallar</a></li>
+                    <li class="list"><a href="{% url 'index' %}">Menyu </a></li>
+                    <li class="list"><a href="{% url 'order' %}">Bolalar uchun</a></li>
+                    <li class="list"><a href="{% url 'branches' %}">Filiallar</a></li>
                 </ul>
                 <div class="phone--shop">
                     <div class="phone">
@@ -86,15 +86,6 @@
             </div>
         </div>
         <div class="account">
-            <div class="phone">
-                <p> ВЕРИФИКАЦИЯ ТЕЛЕФОНА*</p><br>
-                <input class="input" type="text" placeholder="Ваш номер">
-            </div>
-            <div class="contact">
-                <p>КОНТАКТНАЯ ИНФОРМАЦИЯ</p><br>
-                <input class="input" type="text" placeholder="Имя*">
-                <input class="input" type="text" placeholder="Фамилия*">
-            </div>
             <div class="all">
                 <div class="card">
                     <p>СПОСОБЫ ОПЛАТЫ*</p>
@@ -116,9 +107,8 @@
             </div>
 
             <div class="div">
-                <p>«Адрес, Ориентир»*</p>
-                <textarea class="text" name="" id="" cols="30" rows="10"></textarea>
-
+                <p>Address</p>
+                {{form.address}}
             </div>
         </div>
         <div class="gamburger">
@@ -148,12 +138,16 @@
                     <div class="cost">23,500 <span>UZS</span></div>
                 </div>
                 <div class="buttons">
-                    <button class="clear"><a href="http://localhost:8000/"> Очистить</a></button>
-                    <button class="order"><a href="http://localhost:8000/order/">Заказать</a></button>
+                    <button class="clear"><a href="{% url 'index' %}"> Очистить</a></button>
+                    <button class="order"><a href="{% url 'index' %}">Заказать</a></button>
                 </div>
             </div>
             <div class="button">
-                <a type="submit" href="#">Отправить</a>
+                {% if request.user.is_anonymous %}
+                    <a href="{% url 'login' %}" >Отправить</a>
+                {%else%}
+                    <a href="{% url 'order' %}" >Отправить</a>
+                {%endif%}
             </div>
         </div>
     </div>

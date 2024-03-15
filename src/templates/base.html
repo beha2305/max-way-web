@@ -79,9 +79,9 @@
     </button>
     <div class="main__menu">
         <ul>
-            <li class="list"><a href="http://localhost:8000">Menyu </a></li>
-            <li class="list"><a href="http://localhost:8000">Bolalar uchun</a></li>
-            <li class="list"><a href="">Filiallar</a></li>
+            <li class="list"><a href="{% url 'index' %}">Menyu </a></li>
+            <li class="list"><a href="{% url 'index' %}">Bolalar uchun</a></li>
+            <li class="list"><a href="{% url 'branches' %}">Filiallar</a></li>
             <li class="list"><a href="tel:998712005400">(+99871) 200-54-00</a></li>
             <div class="net__icon"><a href="#">
                 <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -120,6 +120,8 @@
 {% block content %}
 
 {% endblock content %}
+
+
 <div class="mob__pattern">
     <div class="mob__pattern--img"><img class="phone" src="{% static 'img/big__phone.png'%}" alt=""></div>
     <img class="path" src="{% static 'img/pathmobile.png'%}" alt="">

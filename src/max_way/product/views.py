@@ -3,12 +3,9 @@ from .models import Category
 from . import services
 
 def index(request):
-    products = services.get_products()
-    categories = Category.objects.all()
+    categories = Category.objects.prefetch_related('product_set').all()
 
     ctx = {
-        "products": products,
         "categories": categories
     }
-
     return render(request, "index.html", ctx)

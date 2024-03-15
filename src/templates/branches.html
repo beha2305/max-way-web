@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <div class="container">
+        <h1 class="filial">Filiallar</h1>
+        {% for branch in branches %}
+        <div class="inner">
+            <div class="main">
+                <div>
+                    {% if branch.status == 1 %}
+                        <h1 class="name">{{ branch.name }} (Active)</h1>
+                    {%else%}
+                        <h1 class="name">{{ branch.name }} (Inactive)</h1>
+                    {% endif %}
+                    <p class="street">{{ branch.address_name }}</p>
+                </div>
+                <div class="information">
+                    <div class="time">
+                        <h3>{{ branch.work_time }}</h3>
+                        <h3>Telefon: {{ branch.phone_number }}</h3>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+
+{% endblock content %}
