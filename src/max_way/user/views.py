@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import RegisterForm, LoginForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login as loginUser
 def register(request):
     form = RegisterForm(request.POST or None)
     if request.method == "POST":
@@ -21,7 +21,9 @@ def login(request):
             password = request.POST.get('password')
             user = authenticate(username=username, password=password)
             if user is not None:
+                loginUser(request, user)
                 return redirect('index')
+
     ctx = {
         'form': form
     }

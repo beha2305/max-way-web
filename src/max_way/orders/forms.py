@@ -6,7 +6,7 @@ class OrderForm(forms.ModelForm):
         model = Orders
         fields = ['address']
         widgets = {
-            "address" : forms.TextInput(attrs= {
+            "address" : forms.Textarea(attrs= {
                 "class": "text", "placeholder": "Enter your address", "cols":"30","rows":"10"
             })
         }

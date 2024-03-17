@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max-way</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+<div class="modal">
+    <div class="title">Заказы</div>
+    <button class="close" onclick="modal()"><span></span></button>
+    <div class="row">
+        <div class="col-12">
+            <div class="item">
+                {% for product in products %}
+                <div class="box">
+                    <div class="box__img"><img class="img" src="media/{{product.image}}" alt=""></div>
+                    <div class="box__content">
+                        <div class="box__title"> {{product.title}}</div>
+                        <div class="box__text"> {{product.detail}}
+                        </div>
+                        <div class="box__const">
+                            <div class="box__cost"> {{product.price}} UZS</div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="total">
+        <div class="title">Итого:</div>
+        <div class="cost">23,500 <span>UZS</span></div>
+    </div>
+    <div class="buttons">
+        <button class="clear"><a href="#"> Очистить</a></button>
+        <button class="order"><a href="#"> Заказать</a></button>
+    </div>
+</div>
