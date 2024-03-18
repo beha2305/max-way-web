@@ -709,7 +709,7 @@
 
     function getCookie(){
         var cookieValue = document.cookie.split("=");
-        if (cookieValue){
+        if (cookieValue[2]){
             return JSON.parse(decodeURIComponent(cookieValue[2]))
         }else{
             return [];

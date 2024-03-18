@@ -12,12 +12,15 @@ def index(request):
     return render(request, "index.html", ctx)
 def bucket(request):
     cookieProducts = request.COOKIES.get('korzinka')
-    items1 = unquote(cookieProducts)
-    items = json.loads(items1)
-    print(items)
-    products = Product.objects.filter(id__in=[item['id'] for item in items])
-    # print(products)
-    ctx = {
-        "product": products
-    }
+    if cookieProducts != None:
+        items1 = unquote(cookieProducts)
+        items = json.loads(items1)
+        # print(items)
+        products = Product.objects.filter(id__in=[item['id'] for item in items])
+        ctx = {
+            "products": products,
+            "items": items
+        }
+    else:
+        ctx = {}
     return render(request, 'korzinka.html', ctx)

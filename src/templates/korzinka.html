@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
 </head>
 <body>
-<div class="modal">
+<div class="modal1">
     <div class="title">Заказы</div>
     <button class="close" onclick="modal()"><span></span></button>
     <div class="row">
@@ -19,9 +19,8 @@
                 <div class="box">
                     <div class="box__img"><img class="img" src="media/{{product.image}}" alt=""></div>
                     <div class="box__content">
-                        <div class="box__title"> {{product.title}}</div>
-                        <div class="box__text"> {{product.detail}}
-                        </div>
+                        <div class="box__title"> {{item.id}}{{product.title}}</div>
+                        <div class="box__text"> {{product.detail}}</div>
                         <div class="box__const">
                             <div class="box__cost"> {{product.price}} UZS</div>
                         </div>
@@ -36,7 +35,7 @@
         <div class="cost">23,500 <span>UZS</span></div>
     </div>
     <div class="buttons">
-        <button class="clear"><a href="#"> Очистить</a></button>
-        <button class="order"><a href="#"> Заказать</a></button>
+        <button class="clear"><a href="{% url 'index' %}"> Очистить</a></button>
+        <button class="order"><a href="{% url 'order' %}"> Заказать</a></button>
     </div>
 </div>

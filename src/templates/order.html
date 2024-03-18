@@ -211,36 +211,6 @@
 
             </div>
             <div class="gamburger">
-            <div class="modal">
-                <div class="title">Заказы</div>
-                <button class="close" onclick="modal()"><span></span></button>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="item">
-                            <div class="box">
-                                <div class="box__img"><img class="img" src="assets/img/burger.png" alt=""></div>
-                                <div class="box__content">
-                                    <div class="box__title"> Double Burger</div>
-                                    <div class="box__text"> Горячая закуска с митболами из говядины, томатами,
-                                        моцареллой и соусом чипотле
-                                    </div>
-                                    <div class="box__const">
-                                        <div class="box__cost"> 23,000 UZS</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="total">
-                    <div class="title">Итого:</div>
-                    <div class="cost">23,500<span>UZS</span></div>
-                </div>
-                <div class="buttons">
-                    <button class="clear"><a href="{% url 'index' %}"> Очистить</a></button>
-                    <button class="order"><a href="{% url 'index' %}">Заказать</a></button>
-                </div>
-            </div>
             <div class="button">
                 {% if request.user.is_anonymous %}
                     <button id="submit" ><a href="{% url 'login' %}">Отправить</a></button>

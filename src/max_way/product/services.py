@@ -22,5 +22,4 @@ def get_products():
             from product_product pp 
             inner join product_category pc on pc.id = pp.category_id 
         """)
-
         return dictfethall(cursor)
